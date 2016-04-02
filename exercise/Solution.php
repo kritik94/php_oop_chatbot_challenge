@@ -29,10 +29,5 @@ class Bot
     private function isServesMessage($message)
     {
         return (substr($message, 0, 2) == '::') ? true : false;
-        // if (preg_match('/^::/', $message) !== false) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
     }
 }
