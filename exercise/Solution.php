@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Solution;
-/*
- * if 'message' not found, return '::notFound' message
- */
+
 class Bot
 {
     private $responseList = [];
@@ -64,7 +62,4 @@ class Bot
     {
         return (substr($message, 0, 2) == '::') ? true : false;
     }
-
 }
-// ['message' => ['answer' => func, 'aks' = null]]
-// $response = ['func' => $func, 'ask' => $ask]

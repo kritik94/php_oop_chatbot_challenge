@@ -9,7 +9,7 @@ class TestSolution extends \PHPUnit_Framework_TestCase
     public function testSimpleBot()
     {
         $bot = new Solution\Bot;
-        $bot->addAnswer('help', function() {
+        $bot->addAnswer('help', function () {
             return "It's help message!";
         });
 
@@ -20,7 +20,7 @@ class TestSolution extends \PHPUnit_Framework_TestCase
     {
         $testMessage = "Sorry, I don't understand you";
         $bot = new Solution\Bot;
-        $bot->addAnswer('::notFound', function() use ($testMessage){
+        $bot->addAnswer('::notFound', function () use ($testMessage){
             return $testMessage;
         });
 
@@ -33,11 +33,11 @@ class TestSolution extends \PHPUnit_Framework_TestCase
         $helloMessage = 'Hello! What is your name?';
         $testName = 'Robin';
 
-        $bot->addQuestion('ask_name', function($name) {
+        $bot->addQuestion('ask_name', function ($name) {
             return "Hello, {$name}! My name is Bot!";
         });
 
-        $bot->addAnswer('::hello', function() use ($helloMessage) {
+        $bot->addAnswer('::hello', function () use ($helloMessage) {
             return $helloMessage;
         }, 'ask_name');
 
@@ -48,4 +48,3 @@ class TestSolution extends \PHPUnit_Framework_TestCase
         );
     }
 }
-// 'find {:name}' => params[name]
