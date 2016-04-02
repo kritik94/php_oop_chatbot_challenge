@@ -26,5 +26,26 @@ class TestSolution extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($testMessage, $bot->answer('Something'));
     }
+
+    public function testQuestion()
+    {
+        $bot = new Solution\Bot;
+        $helloMessage = 'Hello! What is your name?';
+        $testName = 'Robin';
+
+        $bot->addQuestion('ask_name', function($name) {
+            return "Hello, {$name}! My name is Bot!";
+        });
+
+        $bot->addAnswer('::hello', function() use ($helloMessage, $testName) {
+            return $helloMessage;
+        }, 'ask_name');
+
+        $this->assertEquals($helloMessage, $bot->hello());
+        $this->assertEquals(
+            "Hello, {$testName}! My name is Bot!",
+            $bot->send($testName)
+        );
+    }
 }
 // 'find {:name}' => params[name]
