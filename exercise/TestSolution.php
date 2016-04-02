@@ -37,7 +37,7 @@ class TestSolution extends \PHPUnit_Framework_TestCase
             return "Hello, {$name}! My name is Bot!";
         });
 
-        $bot->addAnswer('::hello', function() use ($helloMessage, $testName) {
+        $bot->addAnswer('::hello', function() use ($helloMessage) {
             return $helloMessage;
         }, 'ask_name');
 
