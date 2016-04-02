@@ -15,5 +15,16 @@ class TestSolution extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals("It's help message!", $bot->answer('help'));
     }
+
+    public function testNotFoundAnswer()
+    {
+        $testMessage = "Sorry, I don't understand you";
+        $bot = new Solution\Bot;
+        $bot->addAnswer('::notFound', function() use ($testMessage){
+            return $testMessage;
+        });
+
+        $this->assertEquals($testMessage, $bot->answer('Something'));
+    }
 }
 // 'find {:name}' => params[name]
