@@ -6,3 +6,5 @@
 
 Задание реализованно в рамках hexlet workshops, в парном программирование с [Jllfsh](https://github.com/jllfsh).
 Реализованно на основе [hexlet-exercise-kit](https://github.com/hexlet/hexlet-exercise-kit).
+
+### Эксперементальная информация
